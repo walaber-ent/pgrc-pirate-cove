@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://b35sna20h8xdy"]
+
+[ext_resource type="Shader" path="res://Shaders/saturn_unlit_dither.gdshader" id="1_naauf"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_naauf")
+shader_parameter/affine_mapping = true
+shader_parameter/affine_effect_reduction = 1.0
+shader_parameter/albedo_color = Color(1, 0.352941, 0.317647, 0.835294)
+shader_parameter/texture_color_factor = 1.0
+shader_parameter/alpha_scissor = 0.5
+shader_parameter/jitter = 0.4
+shader_parameter/resolution = Vector2i(320, 240)
+shader_parameter/billboard = false
+shader_parameter/full_billboard = false
+shader_parameter/albedo_steps = 64
+shader_parameter/billboard_roll = 0.0
+shader_parameter/billboard_scale = Vector3(1, 1, 1)
