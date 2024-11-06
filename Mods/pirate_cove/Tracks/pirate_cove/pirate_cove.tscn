@@ -45,18 +45,18 @@ gradient = SubResource("Gradient_qm0b2")
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_s311a"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_pskqx"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_7uqvs"]
+[sub_resource type="BoxMesh" id="BoxMesh_1imut"]
 size = Vector3(300, 10, 300)
 
-[sub_resource type="BoxMesh" id="BoxMesh_x4bog"]
+[sub_resource type="BoxMesh" id="BoxMesh_75sun"]
 size = Vector3(19.065, 14.85, 18.995)
 
-[sub_resource type="BoxMesh" id="BoxMesh_utqsh"]
+[sub_resource type="BoxMesh" id="BoxMesh_vjp1e"]
 size = Vector3(19.065, 14.85, 18.995)
 
-[sub_resource type="BoxMesh" id="BoxMesh_dgd8r"]
+[sub_resource type="BoxMesh" id="BoxMesh_tycmv"]
 size = Vector3(16.17, 14.85, 26.035)
 
 [sub_resource type="SphereMesh" id="SphereMesh_7gw3a"]
@@ -181,7 +181,7 @@ size = Vector2(8, 5)
 [node name="TrackPath" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14903, 0)
-mesh = SubResource("ImmediateMesh_s311a")
+mesh = SubResource("ImmediateMesh_pskqx")
 script = ExtResource("4_h316e")
 material = ExtResource("5_6qukl")
 bezier_handle_length = 6.0
@@ -358,7 +358,7 @@ unique_name_in_owner = true
 
 [node name="trigger" parent="OutOfBounds" instance=ExtResource("8_nfmkb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.85441, 0)
-mesh = SubResource("BoxMesh_7uqvs")
+mesh = SubResource("BoxMesh_1imut")
 size = Vector3(300, 10, 300)
 
 [node name="ReverbTrigger" type="Node3D" parent="."]
@@ -368,23 +368,24 @@ reverb_strength = 0.8
 
 [node name="trigger" parent="ReverbTrigger" instance=ExtResource("8_nfmkb")]
 transform = Transform3D(0.628791, 0, -0.777574, 0, 1, 0, 0.777574, 0, 0.628791, 1.92899, 0, -18.4719)
-mesh = SubResource("BoxMesh_x4bog")
+mesh = SubResource("BoxMesh_75sun")
 size = Vector3(19.065, 14.85, 18.995)
 
 [node name="trigger2" parent="ReverbTrigger" instance=ExtResource("8_nfmkb")]
 transform = Transform3D(0.965876, 0, -0.259004, 0, 1, 0, 0.259004, 0, 0.965876, -7.41129, 0, -7.89548)
-mesh = SubResource("BoxMesh_utqsh")
+mesh = SubResource("BoxMesh_vjp1e")
 size = Vector3(19.065, 14.85, 18.995)
 
 [node name="trigger3" parent="ReverbTrigger" instance=ExtResource("8_nfmkb")]
 transform = Transform3D(0.861461, 0, 0.507824, 0, 1, 0, -0.507824, 0, 0.861461, -4.45419, 0, 6.99166)
-mesh = SubResource("BoxMesh_dgd8r")
+mesh = SubResource("BoxMesh_tycmv")
 size = Vector3(16.17, 14.85, 26.035)
 
 [node name="TrackCameras" type="Node3D" parent="."]
 unique_name_in_owner = true
 
 [node name="TrackCameraPreviewer" parent="." instance=ExtResource("12_pj2a4")]
+unique_name_in_owner = true
 
 [node name="PirateTrack" parent="." instance=ExtResource("10_yv8mc")]
 
