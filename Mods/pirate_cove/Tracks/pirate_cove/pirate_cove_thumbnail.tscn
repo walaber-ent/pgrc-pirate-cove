@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cmok3hgbga6hb"]
+
+[ext_resource type="Script" path="res://Mods/Scripts/ModTrackThumbnail.gd" id="1_aya62"]
+[ext_resource type="PackedScene" uid="uid://dsq7y81sr150g" path="res://Mods/pirate_cove/Tracks/pirate_cove/PirateTrackThumbnailModel.blend" id="2_in5t7"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_rkc7r"]
+flip_faces = true
+top_radius = 12.5
+bottom_radius = 12.5
+height = 5.0
+
+[node name="PirateCoveThumbnail" type="Node3D"]
+script = ExtResource("1_aya62")
+
+[node name="Bounds (Will Be Hidden)" type="MeshInstance3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+mesh = SubResource("CylinderMesh_rkc7r")
+
+[node name="PirateTrackThumbnailModel" parent="." instance=ExtResource("2_in5t7")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
