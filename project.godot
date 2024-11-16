@@ -50,7 +50,7 @@ LIGHT_DIR={
 }
 CULL_DIST_BIAS={
 "type": "float",
-"value": 0.0
+"value": 100.0
 }
 OVERALL_GAMMA={
 "type": "float",
@@ -58,9 +58,17 @@ OVERALL_GAMMA={
 }
 CULL_DIST_NEAR={
 "type": "vec2",
-"value": Vector2(0, 0)
+"value": Vector2(25, 40)
 }
 CULL_DIST_FAR={
 "type": "vec2",
-"value": Vector2(0, 0)
+"value": Vector2(50, 70)
+}
+JITTER={
+"type": "float",
+"value": 0.667
+}
+JITTER_RESOLUTION={
+"type": "vec2",
+"value": Vector2(320, 240)
 }

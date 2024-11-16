@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://b2n4oo04jux0t"]
+[gd_scene load_steps=37 format=3 uid="uid://b2n4oo04jux0t"]
 
 [ext_resource type="Script" path="res://Mods/Scripts/ModTrack.gd" id="1_seqqr"]
 [ext_resource type="PackedScene" uid="uid://c7d7wtb3lm6hn" path="res://Mods/Placeholders/mod_car_spawn.tscn" id="2_05dne"]
@@ -9,12 +9,15 @@
 [ext_resource type="Material" uid="uid://budvf3w2bjk2w" path="res://Mods/Placeholders/Materials/track_path.tres" id="5_6qukl"]
 [ext_resource type="PackedScene" uid="uid://cu0mwqn0aqh5x" path="res://Mods/Placeholders/mod_track_path_point.tscn" id="6_bv4sn"]
 [ext_resource type="PackedScene" uid="uid://cvsxe56hnxaa0" path="res://Mods/Placeholders/mod_trigger.tscn" id="8_nfmkb"]
+[ext_resource type="PackedScene" uid="uid://cq6m734ruksda" path="res://Mods/Placeholders/mod_barrier_arrow_block.tscn" id="9_46kmx"]
 [ext_resource type="PackedScene" uid="uid://b80ls8gu1xpos" path="res://Mods/Placeholders/mod_spectator_car.tscn" id="9_rp1cy"]
 [ext_resource type="Script" path="res://Mods/Scripts/ModReverbTrigger.gd" id="10_nn3ty"]
 [ext_resource type="PackedScene" uid="uid://bviojfh2n0vr4" path="res://Mods/pirate_cove/Tracks/pirate_cove/PirateTrack.blend" id="10_yv8mc"]
 [ext_resource type="Script" path="res://Mods/pirate_cove/Tracks/pirate_cove/EyeTrigger.gd" id="11_kyt7r"]
 [ext_resource type="Material" uid="uid://b35sna20h8xdy" path="res://Mods/pirate_cove/Tracks/pirate_cove/cave_eye.tres" id="12_0lyf4"]
 [ext_resource type="PackedScene" uid="uid://dqqrq7ntnw2j8" path="res://Mods/Placeholders/mod_track_camera_previewer.tscn" id="12_pj2a4"]
+[ext_resource type="Script" path="res://Mods/Scripts/ModTrackCamera.gd" id="13_ua17w"]
+[ext_resource type="PackedScene" path="res://Mods/Placeholders/mod_intro_camera.tscn" id="18_ixi2i"]
 
 [sub_resource type="Resource" id="Resource_l4ps1"]
 script = ExtResource("3_rqxfs")
@@ -45,18 +48,18 @@ gradient = SubResource("Gradient_qm0b2")
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_esvcd"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_2iyp3"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_13x28"]
+[sub_resource type="BoxMesh" id="BoxMesh_nn6yb"]
 size = Vector3(300, 10, 300)
 
-[sub_resource type="BoxMesh" id="BoxMesh_x3dom"]
+[sub_resource type="BoxMesh" id="BoxMesh_gv2py"]
 size = Vector3(19.065, 14.85, 18.995)
 
-[sub_resource type="BoxMesh" id="BoxMesh_tf1sn"]
+[sub_resource type="BoxMesh" id="BoxMesh_7aekn"]
 size = Vector3(19.065, 14.85, 18.995)
 
-[sub_resource type="BoxMesh" id="BoxMesh_0er1q"]
+[sub_resource type="BoxMesh" id="BoxMesh_y5cvs"]
 size = Vector3(16.17, 14.85, 26.035)
 
 [sub_resource type="SphereMesh" id="SphereMesh_7gw3a"]
@@ -129,6 +132,20 @@ _data = {
 "eyes_on": SubResource("Animation_b4xsp")
 }
 
+[sub_resource type="Curve3D" id="Curve3D_ltjoh"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0.21331, 0.314927, -1.16406, 9.65202, 0.942938, 0.174032, -9.65202, -0.942938, -0.174032, -23.8673, -0.578605, -0.85618, 1.01041, 2.20152, -7.74628, -1.01041, -2.20152, 7.74628, -40.9708, -7.35202, 15.1093),
+"tilts": PackedFloat32Array(0, 0.00109135, 0)
+}
+point_count = 3
+
+[sub_resource type="Curve3D" id="Curve3D_0qmt1"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 24.2229, 11.5881, -7.90105, 0, 0, 0, 0, 0, 0, -12.7094, 0.975385, 13.8237),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
 [node name="PirateCove" type="Node3D"]
 script = ExtResource("1_seqqr")
 
@@ -181,7 +198,7 @@ size = Vector2(8, 5)
 [node name="TrackPath" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14903, 0)
-mesh = SubResource("ImmediateMesh_esvcd")
+mesh = SubResource("ImmediateMesh_2iyp3")
 script = ExtResource("4_h316e")
 material = ExtResource("5_6qukl")
 bezier_handle_length = 6.0
@@ -292,6 +309,21 @@ transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 43.339
 [node name="Barriers" type="Node3D" parent="."]
 unique_name_in_owner = true
 
+[node name="barrier_arrow_block" parent="Barriers" instance=ExtResource("9_46kmx")]
+transform = Transform3D(-0.5, 0, -0.866025, 0, 1, 0, 0.866025, 0, -0.5, 65.5034, 1, 8.56999)
+
+[node name="barrier_arrow_block2" parent="Barriers" instance=ExtResource("9_46kmx")]
+transform = Transform3D(-5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 66.5773, 1, 5.18051)
+
+[node name="barrier_arrow_block3" parent="Barriers" instance=ExtResource("9_46kmx")]
+transform = Transform3D(-5.96046e-08, 0, -1, 0, 1, 0, 1, 0, -5.96046e-08, 66.5773, 1, 1.56475)
+
+[node name="barrier_arrow_block4" parent="Barriers" instance=ExtResource("9_46kmx")]
+transform = Transform3D(0.11363, -0.0938133, -0.989084, 0.0661172, 0.994039, -0.0866875, 0.991321, -0.0555451, 0.119156, 51.7521, 13.3673, 76.9299)
+
+[node name="barrier_arrow_block5" parent="Barriers" instance=ExtResource("9_46kmx")]
+transform = Transform3D(-0.907837, 0.0100857, 0.419202, 0.0123761, 0.99992, 0.00274471, -0.419141, 0.00767981, -0.907889, 43.0194, 13.5291, 66.8176)
+
 [node name="SpectatorCars" type="Node3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12657, 0)
@@ -314,51 +346,114 @@ transform = Transform3D(0.0302597, 0, -0.999542, 0, 1, 0, 0.999542, 0, 0.0302597
 [node name="spectator_car6" parent="SpectatorCars" instance=ExtResource("9_rp1cy")]
 transform = Transform3D(0.0640449, 0, -0.997947, 0, 1, 0, 0.997947, 0, 0.0640449, 69.8187, 0.253666, -32.6185)
 
+[node name="spectator_car20" parent="SpectatorCars" instance=ExtResource("9_rp1cy")]
+transform = Transform3D(0.404237, 0.271545, -0.873416, -0.0243529, 0.957771, 0.2865, 0.91433, -0.0945439, 0.39378, 68.9198, -0.92949, -63.3878)
+
+[node name="spectator_car25" parent="SpectatorCars" instance=ExtResource("9_rp1cy")]
+transform = Transform3D(0.0801703, -0.220946, 0.971985, -0.0232111, 0.974447, 0.22342, -0.996511, -0.0404724, 0.0729932, 53.5829, -0.853796, -66.9533)
+
+[node name="spectator_car26" parent="SpectatorCars" instance=ExtResource("9_rp1cy")]
+transform = Transform3D(0.0801703, -0.220946, 0.971985, -0.0232111, 0.974447, 0.22342, -0.996511, -0.0404724, 0.0729932, 53.7964, -0.648796, -63.9741)
+
+[node name="spectator_car27" parent="SpectatorCars" instance=ExtResource("9_rp1cy")]
+transform = Transform3D(0.199145, -0.261655, 0.944393, 0.00445254, 0.963928, 0.266129, -0.97996, -0.0487931, 0.193126, 53.9626, -0.486524, -60.9747)
+
+[node name="spectator_car28" parent="SpectatorCars" instance=ExtResource("9_rp1cy")]
+transform = Transform3D(0.35313, -0.261655, 0.89824, 0.048562, 0.963928, 0.261698, -0.934313, -0.0487931, 0.353098, 54.7116, -0.119965, -57.7498)
+
+[node name="spectator_car21" parent="SpectatorCars" instance=ExtResource("9_rp1cy")]
+transform = Transform3D(0.404237, 0.271545, -0.873416, -0.0243529, 0.957771, 0.2865, 0.91433, -0.0945439, 0.39378, 69.1466, -0.768268, -61.1034)
+
+[node name="spectator_car22" parent="SpectatorCars" instance=ExtResource("9_rp1cy")]
+transform = Transform3D(0.231427, 0.271545, -0.934187, 0.0303721, 0.957771, 0.285925, 0.972378, -0.0945439, 0.213406, 69.3533, -0.583515, -58.6379)
+
+[node name="spectator_car23" parent="SpectatorCars" instance=ExtResource("9_rp1cy")]
+transform = Transform3D(0.166789, 0.271545, -0.947863, 0.0499171, 0.957771, 0.283167, 0.984728, -0.0945439, 0.146191, 69.4154, -0.369331, -56.2897)
+
+[node name="spectator_car24" parent="SpectatorCars" instance=ExtResource("9_rp1cy")]
+transform = Transform3D(0.166789, 0.271545, -0.947863, 0.0499171, 0.957771, 0.283167, 0.984728, -0.0945439, 0.146191, 69.8, -0.254243, -54.0193)
+
 [node name="spectator_car7" parent="SpectatorCars" instance=ExtResource("9_rp1cy")]
-transform = Transform3D(0.210625, 0, 0.977567, 0, 1, 0, -0.977567, 0, 0.210625, -65.2027, -0.595522, -28.9348)
+transform = Transform3D(-0.310328, 0, 0.95063, 0, 1, 0, -0.95063, 0, -0.310328, -66.3611, -0.595522, 23.1906)
 
 [node name="spectator_car8" parent="SpectatorCars" instance=ExtResource("9_rp1cy")]
-transform = Transform3D(0.210625, 0, 0.977567, 0, 1, 0, -0.977567, 0, 0.210625, -64.7005, -0.488517, -31.2654)
+transform = Transform3D(-0.281555, 0, 0.959545, 0, 1, 0, -0.959545, 0, -0.281555, -66.3082, -0.488517, 16.5574)
 
 [node name="spectator_car9" parent="SpectatorCars" instance=ExtResource("9_rp1cy")]
-transform = Transform3D(0.210625, 0, 0.977567, 0, 1, 0, -0.977567, 0, 0.210625, -64.184, -0.00716329, -33.6626)
+transform = Transform3D(-0.206478, 0, 0.978451, 0, 1, 0, -0.978451, 0, -0.206478, -66.439, -0.76969, 7.99723)
 
 [node name="spectator_car10" parent="SpectatorCars" instance=ExtResource("9_rp1cy")]
-transform = Transform3D(0.210625, 0, 0.977567, 0, 1, 0, -0.977567, 0, 0.210625, -63.7107, 0.215803, -35.8596)
+transform = Transform3D(0.0770581, -0.184358, 0.979834, 0.0270403, 0.982781, 0.182785, -0.99666, 0.0124099, 0.0807163, -64.2026, -0.407893, -33.0415)
+
+[node name="spectator_car36" parent="SpectatorCars" instance=ExtResource("9_rp1cy")]
+transform = Transform3D(-0.0368175, -0.11231, 0.992991, 0.0329272, 0.992989, 0.11353, -0.99878, 0.0368763, -0.0328613, -64.3517, -0.676966, -25.9074)
+
+[node name="spectator_car37" parent="SpectatorCars" instance=ExtResource("9_rp1cy")]
+transform = Transform3D(-0.0368175, -0.0469502, 0.998219, 0.0329272, 0.998296, 0.0481683, -0.99878, 0.034642, -0.0352088, -65.5418, -1.00885, -17.2133)
+
+[node name="spectator_car38" parent="SpectatorCars" instance=ExtResource("9_rp1cy")]
+transform = Transform3D(-0.0368175, -0.0469502, 0.998219, 0.0329272, 0.998296, 0.0481683, -0.99878, 0.034642, -0.0352088, -66.0501, -0.899003, -11.8911)
+
+[node name="spectator_car39" parent="SpectatorCars" instance=ExtResource("9_rp1cy")]
+transform = Transform3D(-0.0827915, -0.0469502, 0.995461, 0.0306719, 0.998296, 0.0496349, -0.996095, 0.034642, -0.0812104, -66.2084, -0.869006, -6.69556)
+
+[node name="spectator_car40" parent="SpectatorCars" instance=ExtResource("9_rp1cy")]
+transform = Transform3D(-0.0827915, -0.0469502, 0.995461, 0.0306719, 0.998296, 0.0496349, -0.996095, 0.034642, -0.0812104, -65.8596, -0.906649, -0.0838082)
 
 [node name="spectator_car11" parent="SpectatorCars" instance=ExtResource("9_rp1cy")]
-transform = Transform3D(0.210625, 0, 0.977567, 0, 1, 0, -0.977567, 0, 0.210625, -63.2807, 0.230502, -37.8552)
+transform = Transform3D(0.210625, -0.204232, 0.955995, 0, 0.977933, 0.208919, -0.977567, -0.0440035, 0.205977, -63.2437, 0.0535369, -37.8472)
 
 [node name="spectator_car12" parent="SpectatorCars" instance=ExtResource("9_rp1cy")]
-transform = Transform3D(0.210625, 0, 0.977567, 0, 1, 0, -0.977567, 0, 0.210625, -62.8433, 0.479356, -39.8853)
+transform = Transform3D(0.210625, -0.288797, 0.933934, 0, 0.955366, 0.295425, -0.977567, -0.0622238, 0.201224, -62.1229, 0.101281, -42.6736)
 
 [node name="spectator_car13" parent="SpectatorCars" instance=ExtResource("9_rp1cy")]
-transform = Transform3D(-0.127982, 0, -0.991776, 0, 1, 0, 0.991776, 0, -0.127982, -49.5526, -0.68, -18.6848)
+transform = Transform3D(-0.254906, 0.0598404, -0.965112, 0, 0.998083, 0.0618847, 0.966965, 0.0157748, -0.254417, -48.399, -0.913721, -14.438)
+
+[node name="spectator_car29" parent="SpectatorCars" instance=ExtResource("9_rp1cy")]
+transform = Transform3D(-0.14765, 0.0598404, -0.987227, -0.00677906, 0.998083, 0.0615123, 0.989016, 0.0157748, -0.146961, -48.7702, -0.974552, -9.18099)
+
+[node name="spectator_car30" parent="SpectatorCars" instance=ExtResource("9_rp1cy")]
+transform = Transform3D(-0.14765, 0.0598404, -0.987227, -0.00677906, 0.998083, 0.0615123, 0.989016, 0.0157748, -0.146961, -48.5467, -1.0729, -3.80603)
+
+[node name="spectator_car31" parent="SpectatorCars" instance=ExtResource("9_rp1cy")]
+transform = Transform3D(-0.145713, 0.0644131, -0.987227, 0.024331, 0.99781, 0.0615123, 0.989027, -0.0150571, -0.146961, -48.4506, -1.04398, 1.49605)
+
+[node name="spectator_car32" parent="SpectatorCars" instance=ExtResource("9_rp1cy")]
+transform = Transform3D(-0.14765, 0.0598404, -0.987227, -0.00677906, 0.998083, 0.0615123, 0.989016, 0.0157748, -0.146961, -48.5432, -0.784346, 7.91879)
+
+[node name="spectator_car33" parent="SpectatorCars" instance=ExtResource("9_rp1cy")]
+transform = Transform3D(-0.266061, 0.0660417, -0.961691, 0.0428503, 0.997474, 0.056644, 0.963003, -0.026138, -0.268219, -46.7146, -0.682097, 15.0592)
+
+[node name="spectator_car34" parent="SpectatorCars" instance=ExtResource("9_rp1cy")]
+transform = Transform3D(-0.512712, 0.0598404, -0.856472, 0.0171729, 0.998083, 0.0594542, 0.858388, 0.0157748, -0.512757, -46.6618, -0.793007, 20.4494)
+
+[node name="spectator_car35" parent="SpectatorCars" instance=ExtResource("9_rp1cy")]
+transform = Transform3D(-0.512712, 0.0598404, -0.856472, 0.0171729, 0.998083, 0.0594542, 0.858388, 0.0157748, -0.512757, -46.6618, -0.793007, 20.4494)
 
 [node name="spectator_car14" parent="SpectatorCars" instance=ExtResource("9_rp1cy")]
-transform = Transform3D(-0.127982, 0, -0.991776, 0, 1, 0, 0.991776, 0, -0.127982, -49.1932, -0.595522, -20.9199)
+transform = Transform3D(-0.127982, 0, -0.991776, 0, 1, 0, 0.991776, 0, -0.127982, -47.6906, -0.848496, -18.3474)
 
 [node name="spectator_car15" parent="SpectatorCars" instance=ExtResource("9_rp1cy")]
-transform = Transform3D(-0.127982, 0, -0.991776, 0, 1, 0, 0.991776, 0, -0.127982, -48.8147, -0.488517, -23.2738)
+transform = Transform3D(-0.248047, 0, -0.968747, 0, 1, 0, 0.968747, 0, -0.248047, -47.4829, -0.775053, -22.1382)
 
 [node name="spectator_car16" parent="SpectatorCars" instance=ExtResource("9_rp1cy")]
-transform = Transform3D(-0.127982, 0, -0.991776, 0, 1, 0, 0.991776, 0, -0.127982, -48.4253, -0.00716329, -25.6949)
+transform = Transform3D(-0.235583, 0.194504, -0.952191, 0, 0.979768, 0.200137, 0.971854, 0.047149, -0.230817, -46.652, -0.665552, -26.6338)
 
 [node name="spectator_car17" parent="SpectatorCars" instance=ExtResource("9_rp1cy")]
-transform = Transform3D(-0.127982, 0, -0.991776, 0, 1, 0, 0.991776, 0, -0.127982, -48.0685, -0.00716329, -27.9137)
+transform = Transform3D(-0.446963, 0.158826, -0.880339, 7.45058e-09, 0.984112, 0.177548, 0.894552, 0.0793576, -0.439861, -45.9707, -0.451785, -30.7941)
 
 [node name="spectator_car18" parent="SpectatorCars" instance=ExtResource("9_rp1cy")]
-transform = Transform3D(-0.127982, 0, -0.991776, 0, 1, 0, 0.991776, 0, -0.127982, -47.7445, 0.230502, -29.9292)
+transform = Transform3D(-0.204821, 0.21065, -0.955863, -3.72529e-09, 0.976567, 0.215212, 0.978799, 0.04408, -0.200021, -44.9895, 0.105509, -36.249)
 
 [node name="spectator_car19" parent="SpectatorCars" instance=ExtResource("9_rp1cy")]
-transform = Transform3D(-0.127982, 0, -0.991776, 0, 1, 0, 0.991776, 0, -0.127982, -47.4147, 0.479356, -31.9796)
+transform = Transform3D(-0.127982, 0.289669, -0.948531, -3.72529e-09, 0.956397, 0.292071, 0.991776, 0.0373799, -0.122402, -44.1335, 0.479356, -41.0223)
 
 [node name="OutOfBounds" type="Node3D" parent="."]
 unique_name_in_owner = true
 
 [node name="trigger" parent="OutOfBounds" instance=ExtResource("8_nfmkb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.85441, 0)
-mesh = SubResource("BoxMesh_13x28")
+mesh = SubResource("BoxMesh_nn6yb")
 size = Vector3(300, 10, 300)
 
 [node name="ReverbTrigger" type="Node3D" parent="."]
@@ -368,21 +463,92 @@ reverb_strength = 0.8
 
 [node name="trigger" parent="ReverbTrigger" instance=ExtResource("8_nfmkb")]
 transform = Transform3D(0.628791, 0, -0.777574, 0, 1, 0, 0.777574, 0, 0.628791, 1.92899, 0, -18.4719)
-mesh = SubResource("BoxMesh_x3dom")
+mesh = SubResource("BoxMesh_gv2py")
 size = Vector3(19.065, 14.85, 18.995)
 
 [node name="trigger2" parent="ReverbTrigger" instance=ExtResource("8_nfmkb")]
 transform = Transform3D(0.965876, 0, -0.259004, 0, 1, 0, 0.259004, 0, 0.965876, -7.41129, 0, -7.89548)
-mesh = SubResource("BoxMesh_tf1sn")
+mesh = SubResource("BoxMesh_7aekn")
 size = Vector3(19.065, 14.85, 18.995)
 
 [node name="trigger3" parent="ReverbTrigger" instance=ExtResource("8_nfmkb")]
 transform = Transform3D(0.861461, 0, 0.507824, 0, 1, 0, -0.507824, 0, 0.861461, -4.45419, 0, 6.99166)
-mesh = SubResource("BoxMesh_0er1q")
+mesh = SubResource("BoxMesh_y5cvs")
 size = Vector3(16.17, 14.85, 26.035)
 
 [node name="TrackCameras" type="Node3D" parent="."]
 unique_name_in_owner = true
+
+[node name="ModTrackCamera" type="Node3D" parent="TrackCameras"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.0713, 7.18745, -25.7852)
+script = ExtResource("13_ua17w")
+fov = 65.0
+base_dist = 30.0
+dist_zoom_factor = 2.0
+
+[node name="ModTrackCamera2" type="Node3D" parent="TrackCameras"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.6312, 2.41124, -94.7954)
+script = ExtResource("13_ua17w")
+fov = 65.0
+base_dist = 30.0
+dist_zoom_factor = 2.0
+fov_range = Vector2(25, 90)
+starting_track_interp = 0.085
+
+[node name="ModTrackCamera3" type="Node3D" parent="TrackCameras"]
+transform = Transform3D(-0.0215825, 0.0776477, -0.996747, 0, 0.996979, 0.0776658, 0.999767, 0.00167622, -0.0215173, -51.5346, 1.78915, -99.3082)
+script = ExtResource("13_ua17w")
+fov = 65.0
+base_dist = 30.0
+dist_zoom_factor = 2.0
+fov_range = Vector2(25, 90)
+starting_track_interp = 0.2
+
+[node name="ModTrackCamera4" type="Node3D" parent="TrackCameras"]
+transform = Transform3D(0.834012, 0.111929, -0.540274, 0, 0.979207, 0.202862, 0.551746, -0.16919, 0.816671, -66.0532, 3.38861, -3.69398)
+script = ExtResource("13_ua17w")
+fov = 65.0
+base_dist = 20.0
+dist_zoom_factor = 1.5
+fov_range = Vector2(40, 90)
+starting_track_interp = 0.278
+
+[node name="ModTrackCamera5" type="Node3D" parent="TrackCameras"]
+transform = Transform3D(0.271662, 0.386899, -0.881198, 0, 0.915632, 0.402018, 0.962393, -0.109213, 0.248742, -78.2361, 13.2637, 65.5648)
+script = ExtResource("13_ua17w")
+fov = 70.0
+base_dist = 20.0
+dist_zoom_factor = 1.5
+fov_range = Vector2(40, 90)
+pan_with_target = false
+starting_track_interp = 0.4
+
+[node name="ModTrackCamera6" type="Node3D" parent="TrackCameras"]
+transform = Transform3D(0.949627, -0.254187, 0.183296, 0, 0.584896, 0.811108, -0.313382, -0.77025, 0.555433, 25.6941, 26.6252, 97.5055)
+script = ExtResource("13_ua17w")
+fov = 70.0
+base_dist = 20.0
+dist_zoom_factor = 2.0
+fov_range = Vector2(10, 90)
+starting_track_interp = 0.486
+
+[node name="ModTrackCamera7" type="Node3D" parent="TrackCameras"]
+transform = Transform3D(-0.354081, 0.518958, -0.778016, 0, 0.831912, 0.554908, 0.935215, 0.196482, -0.294564, 18.9817, 17.7195, 20.3439)
+script = ExtResource("13_ua17w")
+fov = 70.0
+base_dist = 25.0
+dist_zoom_factor = 1.5
+fov_range = Vector2(10, 90)
+starting_track_interp = 0.63
+
+[node name="ModTrackCamera8" type="Node3D" parent="TrackCameras"]
+transform = Transform3D(-0.354081, 0.518958, -0.778016, 0, 0.831912, 0.554908, 0.935215, 0.196482, -0.294564, 3.22153, 8.4119, -18.7902)
+script = ExtResource("13_ua17w")
+fov = 70.0
+base_dist = 25.0
+dist_zoom_factor = 1.5
+fov_range = Vector2(10, 90)
+starting_track_interp = 0.82
 
 [node name="TrackCameraPreviewer" parent="." instance=ExtResource("12_pj2a4")]
 unique_name_in_owner = true
@@ -422,6 +588,24 @@ libraries = {
 "": SubResource("AnimationLibrary_ey48w")
 }
 
+[node name="IntroCamera" parent="." instance=ExtResource("18_ixi2i")]
+unique_name_in_owner = true
+
+[node name="CameraPath" parent="IntroCamera" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 66.0117, 11.1828, -15.8071)
+curve = SubResource("Curve3D_ltjoh")
+
+[node name="LookPath" parent="IntroCamera" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.8364, 0, -8.93721)
+curve = SubResource("Curve3D_0qmt1")
+
+[node name="cam" parent="IntroCamera" index="2"]
+transform = Transform3D(-0.00960395, -0.0065283, -0.999933, 0, 0.999979, -0.0065286, 0.999954, -6.27004e-05, -0.00960375, 66.225, 11.4978, -16.9711)
+
+[node name="look" parent="IntroCamera" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.0592, 11.5881, -16.8383)
+
 [connection signal="body_entered" from="PirateTrack/EyeTrigger/car_trigger" to="PirateTrack/EyeTrigger" method="_on_area_3d_body_entered"]
 
 [editable path="PirateTrack"]
+[editable path="IntroCamera"]

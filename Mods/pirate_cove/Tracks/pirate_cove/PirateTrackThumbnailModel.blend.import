@@ -37,19 +37,19 @@ _subresources={
 },
 "Planks": {
 "use_external/enabled": true,
-"use_external/path": "res://Mods/pirate_cove/Tracks/pirate_cove/planks.tres"
+"use_external/path": "res://Mods/pirate_cove/Tracks/pirate_cove/thumbnail-planks.tres"
 },
 "Rocks": {
 "use_external/enabled": true,
-"use_external/path": "res://Mods/pirate_cove/Tracks/pirate_cove/rocks.tres"
+"use_external/path": "res://Mods/pirate_cove/Tracks/pirate_cove/thumbnail-rocks.tres"
 },
 "Sand": {
 "use_external/enabled": true,
-"use_external/path": "res://Mods/pirate_cove/Tracks/pirate_cove/sand.tres"
+"use_external/path": "res://Mods/pirate_cove/Tracks/pirate_cove/thumbnail-sand.tres"
 },
 "VertexColor": {
 "use_external/enabled": true,
-"use_external/path": "res://Mods/pirate_cove/Tracks/pirate_cove/vertex-color.tres"
+"use_external/path": "res://Mods/pirate_cove/Tracks/pirate_cove/thumbnail-vertex-color.tres"
 }
 }
 }
