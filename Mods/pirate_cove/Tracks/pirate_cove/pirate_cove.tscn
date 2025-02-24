@@ -17,7 +17,7 @@
 [ext_resource type="Material" uid="uid://b35sna20h8xdy" path="res://Mods/pirate_cove/Tracks/pirate_cove/cave_eye.tres" id="12_0lyf4"]
 [ext_resource type="PackedScene" uid="uid://dqqrq7ntnw2j8" path="res://Mods/Placeholders/mod_track_camera_previewer.tscn" id="12_pj2a4"]
 [ext_resource type="Script" path="res://Mods/Scripts/ModTrackCamera.gd" id="13_ua17w"]
-[ext_resource type="PackedScene" path="res://Mods/Placeholders/mod_intro_camera.tscn" id="18_ixi2i"]
+[ext_resource type="PackedScene" uid="uid://nu27gmyay3un" path="res://Mods/Placeholders/mod_intro_camera.tscn" id="18_ixi2i"]
 
 [sub_resource type="Resource" id="Resource_l4ps1"]
 script = ExtResource("3_rqxfs")
@@ -48,18 +48,18 @@ gradient = SubResource("Gradient_qm0b2")
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
 
-[sub_resource type="ImmediateMesh" id="ImmediateMesh_2iyp3"]
+[sub_resource type="ImmediateMesh" id="ImmediateMesh_udya4"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_nn6yb"]
+[sub_resource type="BoxMesh" id="BoxMesh_pf2le"]
 size = Vector3(300, 10, 300)
 
-[sub_resource type="BoxMesh" id="BoxMesh_gv2py"]
+[sub_resource type="BoxMesh" id="BoxMesh_nc43w"]
 size = Vector3(19.065, 14.85, 18.995)
 
-[sub_resource type="BoxMesh" id="BoxMesh_7aekn"]
+[sub_resource type="BoxMesh" id="BoxMesh_mq67f"]
 size = Vector3(19.065, 14.85, 18.995)
 
-[sub_resource type="BoxMesh" id="BoxMesh_y5cvs"]
+[sub_resource type="BoxMesh" id="BoxMesh_q5hmf"]
 size = Vector3(16.17, 14.85, 26.035)
 
 [sub_resource type="SphereMesh" id="SphereMesh_7gw3a"]
@@ -198,7 +198,7 @@ size = Vector2(8, 5)
 [node name="TrackPath" type="MeshInstance3D" parent="."]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14903, 0)
-mesh = SubResource("ImmediateMesh_2iyp3")
+mesh = SubResource("ImmediateMesh_udya4")
 script = ExtResource("4_h316e")
 material = ExtResource("5_6qukl")
 bezier_handle_length = 6.0
@@ -453,7 +453,7 @@ unique_name_in_owner = true
 
 [node name="trigger" parent="OutOfBounds" instance=ExtResource("8_nfmkb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -7.85441, 0)
-mesh = SubResource("BoxMesh_nn6yb")
+mesh = SubResource("BoxMesh_pf2le")
 size = Vector3(300, 10, 300)
 
 [node name="ReverbTrigger" type="Node3D" parent="."]
@@ -463,17 +463,17 @@ reverb_strength = 0.8
 
 [node name="trigger" parent="ReverbTrigger" instance=ExtResource("8_nfmkb")]
 transform = Transform3D(0.628791, 0, -0.777574, 0, 1, 0, 0.777574, 0, 0.628791, 1.92899, 0, -18.4719)
-mesh = SubResource("BoxMesh_gv2py")
+mesh = SubResource("BoxMesh_nc43w")
 size = Vector3(19.065, 14.85, 18.995)
 
 [node name="trigger2" parent="ReverbTrigger" instance=ExtResource("8_nfmkb")]
 transform = Transform3D(0.965876, 0, -0.259004, 0, 1, 0, 0.259004, 0, 0.965876, -7.41129, 0, -7.89548)
-mesh = SubResource("BoxMesh_7aekn")
+mesh = SubResource("BoxMesh_mq67f")
 size = Vector3(19.065, 14.85, 18.995)
 
 [node name="trigger3" parent="ReverbTrigger" instance=ExtResource("8_nfmkb")]
 transform = Transform3D(0.861461, 0, 0.507824, 0, 1, 0, -0.507824, 0, 0.861461, -4.45419, 0, 6.99166)
-mesh = SubResource("BoxMesh_y5cvs")
+mesh = SubResource("BoxMesh_q5hmf")
 size = Vector3(16.17, 14.85, 26.035)
 
 [node name="TrackCameras" type="Node3D" parent="."]
@@ -600,10 +600,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.8364, 0, -8.93721)
 curve = SubResource("Curve3D_0qmt1")
 
 [node name="cam" parent="IntroCamera" index="2"]
-transform = Transform3D(-0.00960395, -0.0065283, -0.999933, 0, 0.999979, -0.0065286, 0.999954, -6.27004e-05, -0.00960375, 66.225, 11.4978, -16.9711)
+transform = Transform3D(-0.00960614, -0.0065318, -0.999933, 0, 0.999979, -0.0065321, 0.999954, -6.27483e-05, -0.00960594, 66.225, 11.4977, -16.9712)
 
 [node name="look" parent="IntroCamera" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.0592, 11.5881, -16.8383)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 80.0593, 11.5881, -16.8383)
 
 [connection signal="body_entered" from="PirateTrack/EyeTrigger/car_trigger" to="PirateTrack/EyeTrigger" method="_on_area_3d_body_entered"]
 
